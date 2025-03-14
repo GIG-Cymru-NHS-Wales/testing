@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Dave",
+        "type": "persons",
+        "id": "d8913a341ff72be5a6716d90c46a29da",
+        "attributes": {
+            "key": "dave_davis",
+            "title": "Dave Davis",
+            "subtitle": "dave.davis@example.com",
+            "box_img_uri": "persons/dave_davis/icons/512.jpg",
+            "top_img_uri": "persons/dave_davis/hero.jpg",
+            "website_uri": "https://example.com/dave",
+            "email_address": "dave.davis@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "Quis eleifend quam adipiscing vitae. Quisque non tellus orci ac auctor augue mauris augue neque. Lacinia quis vel eros donec.",
+
+            "given_name": "Dave",
+            "given_name_phonetic": "dave",
+            "middle_name": "Daniel",
+            "middle_name_phonetic": "daniel",
+            "family_name": "Davis",
+            "family_name_phonetic": "davis",
+            "legal_name": "Dave Daniel Davis",
+            "legal_name_phonetic": "dave daniel davis",
+            "prefix_name": "Hon.",
+            "prefix_name_phonetic": "honorable",
+            "suffix_name": "Sr.",
+            "suffix_name_phonetic": "senior",
+            "salutation_name": "Hon. Davis",
+            "salutation_name_phonetic": "honorable davis",
+            "addressee_name": "Hon. Dave Davis Sr.",
+            "addressee_name_phonetic": "honorable dave davis senior",
+            "nickname": "Davy",
+            "nickname_phonetic": "davy",
+
+            "subject_pronoun": "they",
+            "object_pronoun": "them",
+            "dependent_possessive_pronoun": "their",
+            "independent_possessive_pronoun": "their",
+            "reflexive_pronoun": "theirself",
+            "intensive_pronoun": "theirself",
+            "disjunctive_pronoun": "them"
+        }
+    }]
+}

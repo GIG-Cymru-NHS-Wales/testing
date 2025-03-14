@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Frank",
+        "type": "persons",
+        "id": "acefb313c39ca3cdeea597e08204cc0f",
+        "attributes": {
+            "key": "frank_franklin",
+            "title": "Frank Franklin",
+            "subtitle": "frank.franklin@example.com",
+            "box_img_uri": "persons/gaifrank_franklinl_green/icons/512.jpg",
+            "top_img_uri": "persons/frank_franklin/hero.jpg",
+            "website_uri": "https://example.com/frank",
+            "email_address": "frank.franklin@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "Etiam ut feugiat nibh. Suspendisse at scelerisque lectus, ut rutrum purus. Nulla non mattis mauris. In gravida risus in ipsum venenatis feugiat quis luctus dui.",
+
+            "given_name": "Frank",
+            "given_name_phonetic": "frank",
+            "middle_name": "Franklin",
+            "middle_name_phonetic": "francis",
+            "family_name": "Franklin",
+            "family_name_phonetic": "franklin",
+            "legal_name": "Frank Francis Franklin",
+            "legal_name_phonetic": "frank francis franklin",
+            "prefix_name": "Hon.",
+            "prefix_name_phonetic": "honorable",
+            "suffix_name": "Sr.",
+            "suffix_name_phonetic": "senior",
+            "salutation_name": "Hon. Franklin",
+            "salutation_name_phonetic": "honorable franklin",
+            "addressee_name": "Hon. Frank Franklin Sr.",
+            "addressee_name_phonetic": "honorable frank franklin senior",
+            "nickname": "Frankie",
+            "nickname_phonetic": "frankie",
+
+            "subject_pronoun": "they",
+            "object_pronoun": "them",
+            "dependent_possessive_pronoun": "their",
+            "independent_possessive_pronoun": "their",
+            "reflexive_pronoun": "theirself",
+            "intensive_pronoun": "theirself",
+            "disjunctive_pronoun": "them"
+        }    
+    }]
+}

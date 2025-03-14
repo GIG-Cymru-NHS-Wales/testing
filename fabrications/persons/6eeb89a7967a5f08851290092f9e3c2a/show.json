@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Eve",
+        "type": "persons",
+        "id": "6eeb89a7967a5f08851290092f9e3c2a",
+        "attributes": {
+            "key": "eve_evans",
+            "title": "Eve Evans",
+            "subtitle": "eve.evans@example.com",
+            "box_img_uri": "persons/eve_evans/icons/512.jpg",
+            "top_img_uri": "persons/eve_evans/hero.jpg",
+            "website_uri": "https://example.com/eve",
+            "email_address": "eve.evans@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "Lacus suspendisse faucibus interdum posuere. Malesuada fames ac turpis egestas maecenas. Adipiscing tristique risus nec feugiat.",
+
+            "given_name": "Eve",
+            "given_name_phonetic": "eve",
+            "middle_name": "Earheart",
+            "middle_name_phonetic": "earheart",
+            "family_name": "Evans",
+            "family_name_phonetic": "evans",
+            "legal_name": "Eve Earheart Evans",
+            "legal_name_phonetic": "eve earheart evans",
+            "prefix_name": "Hon.",
+            "prefix_name_phonetic": "honorable",
+            "suffix_name": "Sr.",
+            "suffix_name_phonetic": "senior",
+            "salutation_name": "Hon. Evans",
+            "salutation_name_phonetic": "honorable evans",
+            "addressee_name": "Hon. Eve Evans Sr.",
+            "addressee_name_phonetic": "honorable eve evans senior",
+            "nickname": "Evie",
+            "nickname_phonetic": "evie",
+
+            "subject_pronoun": "they",
+            "object_pronoun": "them",
+            "dependent_possessive_pronoun": "their",
+            "independent_possessive_pronoun": "their",
+            "reflexive_pronoun": "theirself",
+            "intensive_pronoun": "theirself",
+            "disjunctive_pronoun": "them"
+        }
+    }]
+}

@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Carol",
+        "type": "persons",
+        "id": "ebb7f695a7301810fcd17efff78f222d",
+        "attributes": {
+            "key": "carol_clark",
+            "title": "Carol Clark",
+            "subtitle": "carol.clark@example.com",
+            "box_img_uri": "persons/carol_clark/icons/512.jpg",
+            "top_img_uri": "persons/carol_clark/hero.jpg",
+            "website_uri": "https://example.com/carol",
+            "email_address": "carol.clark@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "Viverra justo nec ultrices dui. Leo integer malesuada nunc vel. Blandit libero volutpat sed cras. A cras semper auctor neque vitae tempus quam pellentesque.",
+
+            "given_name": "Carol",
+            "given_name_phonetic": "carol",
+            "middle_name": "Channing",
+            "middle_name_phonetic": "channing",
+            "family_name": "Clark",
+            "family_name_phonetic": "clark",
+            "legal_name": "Carol Channing Clark",
+            "legal_name_phonetic": "carol channing clark",
+            "prefix_name": "Hon.",
+            "prefix_name_phonetic": "honorable",
+            "suffix_name": "Sr.",
+            "suffix_name_phonetic": "senior",
+            "salutation_name": "Hon. Clark",
+            "salutation_name_phonetic": "honorable clark",
+            "addressee_name": "Hon. Carol Clark Sr.",
+            "addressee_name_phonetic": "honorable carol clark senior",
+            "nickname": "Carrie",
+            "nickname_phonetic": "carrie",
+
+            "subject_pronoun": "they",
+            "object_pronoun": "them",
+            "dependent_possessive_pronoun": "their",
+            "independent_possessive_pronoun": "their",
+            "reflexive_pronoun": "theirself",
+            "intensive_pronoun": "theirself",
+            "disjunctive_pronoun": "them"
+        }
+    }]
+}

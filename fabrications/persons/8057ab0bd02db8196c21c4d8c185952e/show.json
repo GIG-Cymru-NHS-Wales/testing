@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Gail",
+        "type": "persons",
+        "id": "8057ab0bd02db8196c21c4d8c185952e",
+        "attributes": {
+            "key": "gail_green",
+            "title": "Gail Green",
+            "subtitle": "gail.green@example.com",
+            "box_img_uri": "persons/gail_green/icons/512.jpg",
+            "top_img_uri": "persons/gail_green/hero.jpg",
+            "website_uri": "https://example.com/gail",
+            "email_address": "gail.green@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "TODO",
+
+            "given_name": "Gail",
+            "given_name_phonetic": "gail",
+            "middle_name": "Goodwin",
+            "middle_name_phonetic": "goodwin",
+            "family_name": "Green",
+            "family_name_phonetic": "green",
+            "legal_name": "Gail Goodwin Green",
+            "legal_name_phonetic": "gail goodwin green",
+            "prefix_name": "Hon.",
+            "prefix_name_phonetic": "honorable",
+            "suffix_name": "Sr.",
+            "suffix_name_phonetic": "senior",
+            "salutation_name": "Hon. Green",
+            "salutation_name_phonetic": "honorable green",
+            "addressee_name": "Hon. Gail Green Sr.",
+            "addressee_name_phonetic": "honorable gail green denior",
+            "nickname": "Gaga",
+            "nickname_phonetic": "gaga",
+
+            "subject_pronoun": "they",
+            "object_pronoun": "them",
+            "dependent_possessive_pronoun": "their",
+            "independent_possessive_pronoun": "their",
+            "reflexive_pronoun": "theirself",
+            "intensive_pronoun": "theirself",
+            "disjunctive_pronoun": "them"
+        }
+    }]
+}

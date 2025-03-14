@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Bob",
+        "type": "persons",
+        "id": "925561d3c5d097b690d029ef03d08721",
+        "attributes": {
+            "key": "bob_brown",
+            "title": "Bob Brown",
+            "subtitle": "bob.brown@example.com",
+            "box_img_uri": "persons/bob_brown/icons/512.jpg",
+            "top_img_uri": "persons/bob_brown/hero.jpg",
+            "website_uri": "https://example.com/alice",
+            "email_address": "bob.brown@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "Vitae suscipit tellus mauris a diam maecenas sed. Nunc sed velit dignissim sodales ut eu sem integer vitae.",
+
+            "given_name": "Bob",
+            "given_name_phonetic": "bob",
+            "middle_name": "Brian",
+            "middle_name_phonetic": "brian",
+            "family_name": "Brown",
+            "family_name_phonetic": "brown",
+            "legal_name": "Bob Brian Brown",
+            "legal_name_phonetic": "bob brian brown",
+            "prefix_name": "Hon.",
+            "prefix_name_phonetic": "honorable",
+            "suffix_name": "Sr.",
+            "suffix_name_phonetic": "senior",
+            "salutation_name": "Hon. Brown",
+            "salutation_name_phonetic": "honorable brown",
+            "addressee_name": "Hon. Bob Brown Sr.",
+            "addressee_name_phonetic": "honorable bob brown senior",
+            "nickname": "Bobby",
+            "nickname_phonetic": "bobby",
+
+            "subject_pronoun": "he",
+            "object_pronoun": "him",
+            "dependent_possessive_pronoun": "his",
+            "independent_possessive_pronoun": "his",
+            "reflexive_pronoun": "himself",
+            "intensive_pronoun": "himself",
+            "disjunctive_pronoun": "him"
+        }
+    }]
+}

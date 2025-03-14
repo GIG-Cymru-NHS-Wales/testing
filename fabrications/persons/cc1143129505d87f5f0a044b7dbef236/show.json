@@ -1,0 +1,46 @@
+{
+    "data": [{
+        "comment": "Alice",
+        "type": "persons",
+        "id": "cc1143129505d87f5f0a044b7dbef236",
+        "attributes": {
+            "key": "alice_adams",
+            "title": "Alice Adams",
+            "subtitle": "alice.adams@example.com",
+            "box_img_uri": "persons/alice_adams/icons/512.jpg",
+            "top_img_uri": "persons/alice_adams/hero.jpg",
+            "website_uri": "https://example.com/alice",
+            "email_address": "alice.adams@example.com",
+            "telephone_number": "1-800-555-5555",
+            "map_uri": "https://maps.google.com",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+
+            "given_name": "Alice",
+            "given_name_phonetic": "alice",
+            "middle_name": "Amy",
+            "middle_name_phonetic": "amy",
+            "family_name": "Adams",
+            "family_name_phonetic": "adams",
+            "legal_name": "Alice Amy Adams",
+            "legal_name_phonetic": "alice amy adams",
+            "prefix_name": "Dr.",
+            "prefix_name_phonetic": "doctor",
+            "suffix_name": "Jr.",
+            "suffix_name_phonetic": "junior",
+            "salutation_name": "Doctor Adams",
+            "salutation_name_phonetic": "doctor adams",
+            "addressee_name": "Dr. Alice Adams Jr.",
+            "addressee_name_phonetic": "doctor alice adams junior",
+            "nickname": "Ali",
+            "nickname_phonetic": "ali",
+
+            "subject_pronoun": "she",
+            "object_pronoun": "her",
+            "dependent_possessive_pronoun": "her",
+            "independent_possessive_pronoun": "hers",
+            "reflexive_pronoun": "herself",
+            "intensive_pronoun": "herself",
+            "disjunctive_pronoun": "her"
+        }
+    }]
+}

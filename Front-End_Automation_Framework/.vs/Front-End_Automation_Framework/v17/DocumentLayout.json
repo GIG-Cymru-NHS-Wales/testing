@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ol313016\\source\\repos\\Front-End_Automation_Framework\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{628A8E70-D4F5-4D2E-A241-1499CB654DB9}|Front-End_Automation_Framework\\Front-End_Automation_Framework.csproj|c:\\users\\ol313016\\source\\repos\\front-end_automation_framework\\front-end_automation_framework\\template.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{628A8E70-D4F5-4D2E-A241-1499CB654DB9}|Front-End_Automation_Framework\\Front-End_Automation_Framework.csproj|solutionrelative:front-end_automation_framework\\template.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{628A8E70-D4F5-4D2E-A241-1499CB654DB9}|Front-End_Automation_Framework\\Front-End_Automation_Framework.csproj|c:\\users\\ol313016\\source\\repos\\front-end_automation_framework\\front-end_automation_framework\\demo_library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{628A8E70-D4F5-4D2E-A241-1499CB654DB9}|Front-End_Automation_Framework\\Front-End_Automation_Framework.csproj|solutionrelative:front-end_automation_framework\\demo_library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Demo_Library.cs",
+              "DocumentMoniker": "C:\\Users\\Ol313016\\source\\repos\\Front-End_Automation_Framework\\Front-End_Automation_Framework\\Demo_Library.cs",
+              "RelativeDocumentMoniker": "Front-End_Automation_Framework\\Demo_Library.cs",
+              "ToolTip": "C:\\Users\\Ol313016\\source\\repos\\Front-End_Automation_Framework\\Front-End_Automation_Framework\\Demo_Library.cs",
+              "RelativeToolTip": "Front-End_Automation_Framework\\Demo_Library.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T14:16:37.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Template.cs",
+              "DocumentMoniker": "C:\\Users\\Ol313016\\source\\repos\\Front-End_Automation_Framework\\Front-End_Automation_Framework\\Template.cs",
+              "RelativeDocumentMoniker": "Front-End_Automation_Framework\\Template.cs",
+              "ToolTip": "C:\\Users\\Ol313016\\source\\repos\\Front-End_Automation_Framework\\Front-End_Automation_Framework\\Template.cs",
+              "RelativeToolTip": "Front-End_Automation_Framework\\Template.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T13:42:07.04Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

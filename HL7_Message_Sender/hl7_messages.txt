@@ -1,0 +1,8 @@
+endpoint= **Add Endpoint**
+port=** Add Port Number**
+MSH|^~\&|149|149|100|100|20250219||ADT^A31^ADT_A05|805934650|P|2.5|||||GBR||EN
+EVN||20201006143614||||20201006143614
+PID|||2513587812^^^NHS^NH~HOS12345^^^149^PI||read^from^file^^Mrs^^||20000908|M|||1 The Grove^Barry^^Vale of Glamorgan^CF62 6JJ^^H
+PD1|||^^W31111|G3353251
+PV1||N
+

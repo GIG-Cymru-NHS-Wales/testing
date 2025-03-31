@@ -1,1 +1,2 @@
 *.jar filter=lfs diff=lfs merge=lfs -text
+SIKULIX/sikulixide-2.0.5.jar filter=lfs diff=lfs merge=lfs -text

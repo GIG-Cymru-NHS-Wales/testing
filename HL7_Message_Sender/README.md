@@ -1,4 +1,4 @@
-# HL7 Message Processor
+# HL7 Message Sender
 
 ## Overview
 This Python script reads HL7 messages from `hl7_messages.txt`, processes them, and sends them to a specified destination. Users must modify the template in the script to customize the message content before sending.

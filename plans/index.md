@@ -6,9 +6,17 @@ WORK IN PROGRESS - REQUEST FOR COMMENTS
 
 This strategic plan outlines a comprehensive approach to elevate our software engineering test automation capabilities through targeted upskilling, skill coordination, and implementation of specific testing methodologies. The initiative aims to build a robust, scalable test automation framework that reduces manual testing time and cost, that improves software quality, and that speeds up digital delivery.
 
+It also emphasizes that automation will augment, not entirely replace, valuable manual and exploratory testing.
+
 ## Current State Assessment Framework
 
 ### What are our skill levels?
+
+**Current Manual Testing Processes & Application Landscape:**
+
+- Analyze current manual testing efforts: identify pain points, time-consuming areas, and critical test scenarios.
+- Document the application landscape: types of applications (web, mobile, API, legacy), underlying technologies, and current testability.
+- Assess team readiness and appetite for change: gauge enthusiasm, anxieties, and preferred learning styles.
 
 **Programming Practices:**
 
@@ -64,7 +72,7 @@ This strategic plan outlines a comprehensive approach to elevate our software en
 
 ### Learning Time Allocation
 
-**Dedicated Learning Hours**: Start with 4 hours per week per full-time engineer.
+**Dedicated Learning Hours**: Start with 4 hours per week per full-time engineer, with strong management commitment to protect this time from project pressures.
 
 - Structured learning (courses, tutorials)
 
@@ -98,6 +106,7 @@ technologies and techniques.
 
 ### Specialized Coaching Program
 
+
 **Containerization and Virtual Environment Coaching**:
 
 - Monthly 1:1 sessions with containerization experts
@@ -110,23 +119,56 @@ technologies and techniques.
 
 **Implementation Timeline**: 6-month intensive program with ongoing support
 
+### Mentorship and Support Structure
+
+- **Community of Practice (CoP):** Establish a Test Automation CoP early on for knowledge sharing, problem-solving, and peer support.
+- **Mentorship Program:** Pair learners with more experienced automators (internal or external, potentially developers initially) for guidance and code review.
+- **Protected Practice Time:** Ensure engineers have dedicated time to apply learned skills on non-critical tasks or sample projects.
+
 ## Test Automation Implementation Roadmap
 
-### Phase 1: Foundation Building (Months 1-3)
+### Pilot Program (Phase 0: Month 0-2)
 
-**Unit Testing:**
+- **Objective:** Validate the upskilling approach, initial tool choices, and identify unforeseen challenges on a smaller scale.
+- **Selection:** Choose a small group of enthusiastic testers and a suitable, relatively stable project.
+- **Activities:**
+  - Intensive foundational programming and automation tool training for the pilot team.
+  - Automate a few high-value manual test cases for the selected project (UI or API).
+  - Establish basic framework structure and CI integration for the pilot.
+- **Outcome:** Lessons learned, refined training plan, initial success stories, and a tested approach for broader rollout.
 
-- Establish comprehensive unit test coverage standards (minimum 80%)
+### Phase 1: Foundational Automation Skills & Initial Wins (Months 3-5, post-pilot)
 
-- Implement test-driven development (TDD) practices
+**Focus:** Empowering manual testers with core automation skills and delivering early value
 
-- Integrate mutation testing to validate test quality
+**Key Areas:**
 
-- Set up automated test execution in CI/CD pipelines
+- **Foundational Programming:** Python or JavaScript (chosen based on assessment and target application stack).
+- **Test Automation Fundamentals:** Principles of good test design, selectors, basic framework usage (e.g., Playwright for UI, Postman/Newman or Python `requests` for API).
+- **Automating Existing Manual Tests:** Convert high-value, repetitive manual test cases into automated scripts.
+- **UI Automation Patterns:** Introduce concepts like Page Object Model (POM) early.
+- **Version Control:** Git fundamentals for test script management.
+- **Unit Testing (Developer Focus / Advanced Testers):**
+  - Establish comprehensive unit test coverage standards (minimum 80%)
+  - Implement test-driven development (TDD) practices
+  - Integrate mutation testing to validate test quality
+  - Set up automated test execution in CI/CD pipelines
 
 **Success Metrics**: Test coverage percentage, test execution time, defect detection rate
 
-### Phase 2: Integration and Functional Testing (Months 4-6)
+#### What to Automate First: Prioritization Strategy
+
+- **High-Value, Repetitive Tests:** Manual tests that are run frequently and are time-consuming.
+- **Regression Suites:** Key tests to ensure existing functionality isn't broken by new changes.
+- **Critical User Journeys/Business Flows:** End-to-end scenarios vital for business operations.
+- **Stable Features:** Automate tests for features that are not undergoing frequent, significant changes.
+- **Data-Driven Tests:** Scenarios that need to be tested with multiple data sets.
+
+### Phase 2: Expanding Functional and Integration Testing (Months 6-9)
+
+Automation will handle repetitive checks, freeing up human testers for higher-value activities such as exploratory
+testing, usability testing, accessibility testing, complex scenario validation, and ad-hoc testing where human
+intuition and domain knowledge are paramount.
 
 **Functional Testing:**
 
@@ -146,11 +188,17 @@ technologies and techniques.
 
 - Establish API testing automation with comprehensive validation
 
-- Create end-to-end testing scenarios for critical user journeys
+**Success Metrics**: 
 
-**Success Metrics**: Integration defect reduction, test execution reliability, environment provisioning time
+- Integration defect reduction
 
-### Phase 3: Advanced Testing Strategies (Months 7-9)
+- Test execution reliability
+
+- Environment provisioning time
+
+- Number of manual tests successfully automated
+
+### Phase 3: Advanced Testing Strategies (Months 10-12)
 
 **Performance Testing:**
 
@@ -174,7 +222,7 @@ technologies and techniques.
 
 **Success Metrics**: System resilience scores, mean time to recovery, performance consistency
 
-### Phase 4: Optimization and Innovation (Months 10-12)
+### Phase 4: Optimization and Innovation (Months 13-15+)
 
 **AI-Enhanced Testing:**
 
@@ -198,6 +246,8 @@ technologies and techniques.
 
 ## Technology Stack and Tool Selection
 
+Decisions on core automation frameworks, significant tools, and organization-wide automation patterns will follow the DHCW Architecture Decision Record (ADR) process to ensure proper evaluation, buy-in, and documentation.
+
 ### Core Automation Frameworks
 
 To evaluate:
@@ -211,6 +261,12 @@ To evaluate:
 - **Load Testing**: K6, JMeter, Gatling
 
 ### Infrastructure and CI/CD Integration
+
+**Test Environment Strategy:**
+
+- **Goal:** Provide stable, reliable, and easily provisionable test environments for automated execution.
+- **Approach:** Phased approach towards containerized (Docker, Kubernetes) test environments. Initial focus on consistent configuration and data setup for existing environments.
+- **Automation:** Scripts for environment setup, teardown, and data refresh.
 
 To evaluate:
 
@@ -270,6 +326,8 @@ To evaluate:
 
 - **Tool Compatibility**: Proof-of-concept validation before full implementation
 
+- **Tooling Complexity:** Prioritize tools with a gentler learning curve for initial phases, especially for teams new to programming.
+
 - **Performance Impact**: Continuous monitoring and optimization of test execution resources
 
 ### Organizational Risks
@@ -279,16 +337,20 @@ To evaluate:
 - **Resource Allocation**: Clear ROI demonstration and incremental value delivery
 
 - **Cultural Resistance**: Change champions program and success story sharing
+- **Overwhelming the Team:** The phased rollout, starting with a pilot and focusing on foundational skills first, is designed to mitigate this. Timelines will be flexible based on team progress.
+- **Maintaining Automation Suites:** Emphasize good coding practices, design patterns (POM), and code reviews for test scripts from the outset. Allocate time for refactoring.
 
 ## Implementation Timeline
 
-**Quarter 1**: Assessment completion, foundational training, unit testing implementation
+**Quarter 1**: Detailed assessment completion, Pilot Program execution and review, foundational programming & automation training for initial cohort.
 
-**Quarter 2**: Integration testing framework deployment, functional automation expansion  
+**Quarter 2**: Broader rollout of Phase 1 (Foundational Automation), establish CoP, begin automating initial UI/API tests based on prioritization.
 
-**Quarter 3**: Advanced testing strategies implementation, performance testing integration
+**Quarter 3**: Commence Phase 2 (Expanding Functional/Integration Testing), refine TDM and environment strategies.
 
-**Quarter 4**: Optimization, AI enhancement exploration, comprehensive review and planning
+**Quarter 4**: Continue Phase 2, begin exploring elements of Phase 3 (Advanced Testing) with a select group.
+
+**Year 2 Onwards**: Full implementation of Phase 3 & 4, continuous improvement, and adaptation.
 
 ## Estimated Earned Value
 
@@ -297,8 +359,4 @@ costs, faster release cycles, and improved software quality.
 
 ## Conclusion
 
-This comprehensive test automation strategy positions our engineering
-organization for sustainable growth and competitive advantage. Through
-systematic upskilling, strategic tool adoption, and methodical implementation of
-diverse testing approaches, we will establish a world-class test automation
-capability that drives business value and engineering excellence.
+This comprehensive test automation strategy positions our engineering organization for sustainable growth and competitive advantage. Through systematic upskilling (starting with foundational automation skills for our manual testing team), strategic tool adoption (guided by our ADR process), a balanced approach to manual and automated testing, and methodical implementation of diverse testing approaches, we will establish a robust test engineering capability that drives business value and engineering excellence.

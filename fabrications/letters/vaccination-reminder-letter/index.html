@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #00a499;
+            padding-bottom: 15px;
+        }
+        .nhs-logo {
+            width: 80px;
+            height: 32px;
+            background-color: #005eb8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14pt;
+            margin-right: 20px;
+        }
+        .header-content {
+            flex-grow: 1;
+        }
+        .department-name {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #005eb8;
+            margin-bottom: 5px;
+        }
+        .department-details {
+            font-size: 10pt;
+            color: #666;
+        }
+        .patient-details {
+            margin: 20px 0;
+            float: right;
+            width: 300px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details td {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+        }
+        .patient-details .label {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            width: 120px;
+        }
+        .letter-content {
+            clear: both;
+            margin-top: 40px;
+        }
+        .date {
+            text-align: right;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .vaccination-alert {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .vaccination-alert h2 {
+            margin: 0 0 10px 0;
+            font-size: 18pt;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .vaccination-details {
+            border: 2px solid #00a499;
+            background-color: #f0fffe;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .vaccination-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #005eb8;
+            margin-bottom: 15px;
+        }
+        .vaccine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .vaccine-table th {
+            background-color: #005eb8;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .vaccine-table td {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+        }
+        .vaccine-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .due-status {
+            font-weight: bold;
+            color: #d73527;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .important-note h3 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+        .contact-box {
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .contact-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 10pt;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .signature-section {
+            margin-top: 30px;
+        }
+        .urgent-banner {
+            background-color: #d73527;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            font-weight: bold;
+            font-size: 12pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="urgent-banner">
+        IMPORTANT: VACCINATION REMINDER - ACTION REQUIRED
+    </div>
+
+    <div class="header">
+        <div class="nhs-logo">NHS</div>
+        <div class="header-content">
+            <div class="department-name">Cardiff Public Health Team</div>
+            <div class="department-details">
+                Cardiff and Vale University Health Board<br>
+                Immunisation Services, Temple of Peace, Cathays Park, Cardiff CF10 3NW<br>
+                Tel: 029 2074 7747 | Email: immunisations.cardiff@wales.nhs.uk
+            </div>
+        </div>
+    </div>
+
+    <div class="patient-details">
+        <table>
+            <tr>
+                <td class="label">Patient Name:</td>
+                <td>Emma L. Davies</td>
+            </tr>
+            <tr>
+                <td class="label">DOB:</td>
+                <td>22/07/1992</td>
+            </tr>
+            <tr>
+                <td class="label">NHS Number:</td>
+                <td>987 654 3210</td>
+            </tr>
+            <tr>
+                <td class="label">Address:</td>
+                <td>12 Roath Park Road<br>Cardiff<br>CF23 5DU</td>
+            </tr>
+            <tr>
+                <td class="label">GP Practice:</td>
+                <td>City Centre Medical</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="letter-content">
+        <div class="date">28th August 2025</div>
+        
+        <p>Dear Ms Davies,</p>
+
+        <div class="vaccination-alert">
+            <h2>⚠️ VACCINATION DUE ⚠️</h2>
+            <p>Our records show you have outstanding vaccinations that require immediate attention</p>
+        </div>
+
+        <p>We are writing to remind you that according to our records, you are due for the following vaccinations:</p>
+
+        <div class="vaccination-details">
+            <div class="vaccination-title">Outstanding Vaccinations</div>
+            <table class="vaccine-table">
+                <thead>
+                    <tr>
+                        <th>Vaccination</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>COVID-19 Booster</strong></td>
+                        <td>15/08/2025</td>
+                        <td class="due-status">OVERDUE</td>
+                        <td>Autumn 2025 campaign</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Influenza (Flu)</strong></td>
+                        <td>01/09/2025</td>
+                        <td class="due-status">DUE SOON</td>
+                        <td>Annual vaccination</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-note">
+            <h3>Why These Vaccinations Are Important:</h3>
+            <ul style="margin: 10px 0; padding-left: 20px;">
+                <li><strong>COVID-19 Booster:</strong> Maintains protection against severe illness and hospitalisation</li>
+                <li><strong>Influenza Vaccination:</strong> Protects against seasonal flu strains and reduces transmission</li>
+            </ul>
+        </div>
+
+        <p><strong>How to Book Your Vaccinations:</strong></p>
+        
+        <div class="contact-box">
+            <div class="contact-title">📞 Booking Options:</div>
+            <ul style="margin: 5px 0; padding-left: 20px;">
+                <li><strong>Online:</strong> Visit www.cardiffandvale.wales.nhs.uk/vaccinations</li>
+                <li><strong>Phone:</strong> Call 029 2074 7747 (Mon-Fri 9:00-17:00)</li>
+                <li><strong>GP Practice:</strong> Contact City Centre Medical on 029 2087 4321</li>
+                <li><strong>Walk-in Clinics:</strong> Available at selected pharmacies (check website)</li>
+            </ul>
+        </div>
+
+        <p><strong>Available Vaccination Locations:</strong></p>
+        <ul>
+            <li>Cardiff Bay Health Centre - Tuesdays & Thursdays 14:00-18:00</li>
+            <li>Splott Health Centre - Mondays & Wednesdays 09:00-13:00</li>
+            <li>University Hospital Wales - Daily 10:00-16:00</li>
+            <li>Selected local pharmacies (Boots, Lloyds, independent pharmacies)</li>
+        </ul>
+
+        <div class="important-note">
+            <h3>⏰ Urgent Action Required:</h3>
+            <p>Please book your vaccinations as soon as possible. The COVID-19 booster is already overdue, and flu season is approaching rapidly. Early vaccination provides the best protection for you and your community.</p>
+        </div>
+
+        <p><strong>What to Bring:</strong></p>
+        <ul>
+            <li>NHS number or this letter</li>
+            <li>Photo identification</li>
+            <li>List of current medications</li>
+            <li>Previous vaccination record (if available)</li>
+        </ul>
+
+        <p>If you have already received these vaccinations elsewhere, please inform us by calling 029 2074 7747 or emailing immunisations.cardiff@wales.nhs.uk so we can update our records.</p>
+
+        <p>If you have any questions about these vaccinations, their side effects, or contraindications, please speak to a healthcare professional when booking or contact your GP practice.</p>
+
+        <div class="signature-section">
+            <p>Yours sincerely,</p>
+            <br>
+            <p><strong>Dr. Catherine Morris</strong><br>
+            Consultant in Public Health Medicine<br>
+            Cardiff Public Health Team<br>
+            Cardiff and Vale University Health Board</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Important:</strong> This is an automated reminder based on our vaccination records. If you believe this letter has been sent in error, please contact us immediately.</p>
+        
+        <p><strong>For medical emergencies:</strong> Call 999 | <strong>Non-urgent health advice:</strong> Call NHS 111<br>
+        <strong>Vaccination information:</strong> Visit www.nhs.uk/vaccinations</p>
+        
+        <p style="font-size: 9pt; margin-top: 15px;">
+            Cardiff and Vale University Health Board is committed to protecting your health.<br>
+            This letter is part of the national vaccination programme. Reference: CV-IMM-2025-0828
+        </p>
+    </div>
+</body>
+</html>

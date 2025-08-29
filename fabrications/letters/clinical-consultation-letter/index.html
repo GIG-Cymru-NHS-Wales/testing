@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Consultation Letter</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #fafafa;
+        }
+        .letter-container {
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 6px solid #005eb8;
+        }
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid #005eb8;
+            padding-bottom: 20px;
+        }
+        .nhs-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .nhs-logo {
+            width: 80px;
+            height: 32px;
+            background-color: #005eb8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14pt;
+            margin-right: 25px;
+        }
+        .trust-info {
+            flex-grow: 1;
+        }
+        .trust-name {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #005eb8;
+            margin-bottom: 5px;
+        }
+        .department-name {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .hospital-details {
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.4;
+        }
+        .consultation-info {
+            background-color: #f0f8ff;
+            border: 2px solid #005eb8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .consultation-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #005eb8;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .consultation-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .consultation-details .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .consultation-details .label {
+            font-weight: bold;
+            color: #555;
+        }
+        .patient-details {
+            float: right;
+            width: 300px;
+            background-color: #f8f9fa;
+            border: 2px solid #6c757d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .patient-details h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+            font-size: 12pt;
+            text-align: center;
+            border-bottom: 2px solid #6c757d;
+            padding-bottom: 8px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 10pt;
+        }
+        .patient-details .label {
+            font-weight: bold;
+            color: #495057;
+            width: 110px;
+        }
+        .letter-content {
+            clear: both;
+            margin-top: 40px;
+        }
+        .date-ref {
+            text-align: right;
+            margin-bottom: 30px;
+            font-size: 10pt;
+            color: #666;
+        }
+        .date-ref .date {
+            font-weight: bold;
+            font-size: 11pt;
+            color: #333;
+        }
+        .clinical-summary {
+            background-color: #e8f5e8;
+            border-left: 5px solid #28a745;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .summary-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        .clinical-section {
+            margin: 25px 0;
+        }
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #005eb8;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #005eb8;
+        }
+        .findings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+        }
+        .findings-table th {
+            background-color: #005eb8;
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .findings-table td {
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 10pt;
+        }
+        .findings-table tr:nth-child(even) {
+            background-color: white;
+        }
+        .medications-section {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .medications-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        .medication-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .medication-item {
+            background-color: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 0 5px 5px 0;
+        }
+        .medication-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 11pt;
+        }
+        .medication-details {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 5px;
+        }
+        .follow-up-section {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .follow-up-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 15px;
+        }
+        .appointment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .appointment-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #17a2b8;
+        }
+        .appointment-type {
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 8px;
+        }
+        .important-notes {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .notes-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #721c24;
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            background-color: #e2e3e5;
+            border: 1px solid #6c757d;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .contact-title {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 12pt;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .contact-method {
+            background-color: white;
+            padding: 12px;
+            border-radius: 5px;
+        }
+        .contact-method h5 {
+            margin: 0 0 5px 0;
+            color: #495057;
+            font-size: 10pt;
+        }
+        .contact-method p {
+            margin: 0;
+            font-size: 9pt;
+            color: #666;
+        }
+        .disclaimer {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 10pt;
+            color: #856404;
+        }
+        .signature-section {
+            margin: 40px 0;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+        }
+        .doctor-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .doctor-details h4 {
+            margin: 0 0 8px 0;
+            color: #005eb8;
+            font-size: 12pt;
+        }
+        .doctor-details p {
+            margin: 0;
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.4;
+        }
+        .cc-section {
+            margin-top: 30px;
+            font-size: 10pt;
+            color: #666;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #005eb8;
+            font-size: 9pt;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="header">
+            <div class="nhs-header">
+                <div class="nhs-logo">NHS</div>
+                <div class="trust-info">
+                    <div class="trust-name">Cardiff and Vale University Health Board</div>
+                    <div class="department-name">Department of Cardiology</div>
+                    <div class="hospital-details">
+                        University Hospital of Wales<br>
+                        Heath Park, Cardiff, CF14 4XW<br>
+                        Tel: 029 2074 7747 | Fax: 029 2074 3030<br>
+                        Email: cardiology.uhw@wales.nhs.uk
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="consultation-info">
+            <div class="consultation-title">CARDIOLOGY CONSULTATION SUMMARY</div>
+            <div class="consultation-details">
+                <div class="detail-item">
+                    <span class="label">Consultation Type:</span>
+                    <span>New Patient Assessment</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Clinic:</span>
+                    <span>General Cardiology</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Consultant:</span>
+                    <span>Dr. Helen R. Morgan</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Date of Consultation:</span>
+                    <span>22nd August 2025</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Referral Source:</span>
+                    <span>GP Referral</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Priority:</span>
+                    <span>Routine</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="patient-details">
+            <h3>Patient Demographics</h3>
+            <table>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td>Mrs Margaret A. Phillips</td>
+                </tr>
+                <tr>
+                    <td class="label">DOB:</td>
+                    <td>15/06/1958 (67 years)</td>
+                </tr>
+                <tr>
+                    <td class="label">NHS Number:</td>
+                    <td>234 567 8901</td>
+                </tr>
+                <tr>
+                    <td class="label">Address:</td>
+                    <td>56 Llanishen Road<br>Cardiff<br>CF14 5LU</td>
+                </tr>
+                <tr>
+                    <td class="label">GP:</td>
+                    <td>Dr. James Wilson<br>Llanishen Medical Practice</td>
+                </tr>
+                <tr>
+                    <td class="label">Hospital Number:</td>
+                    <td>UHW123456789</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="letter-content">
+            <div class="date-ref">
+                <div>Our Ref: CV/HRM/2025/0822</div>
+                <div class="date">28th August 2025</div>
+            </div>
+            
+            <p><strong>Dear Dr. Wilson,</strong></p>
+
+            <p>Thank you for referring Mrs Phillips to our cardiology service. I saw her in clinic on 22nd August 2025 regarding her symptoms of chest discomfort and breathlessness on exertion.</p>
+
+            <div class="clinical-summary">
+                <div class="summary-title">Clinical Summary</div>
+                <p><strong>Primary Complaint:</strong> 6-month history of central chest tightness and breathlessness on moderate exertion (climbing two flights of stairs), associated with occasional palpitations. Symptoms resolve with rest within 2-3 minutes.</p>
+                
+                <p><strong>Provisional Diagnosis:</strong> Stable angina pectoris, likely secondary to coronary artery disease</p>
+                
+                <p><strong>Risk Stratification:</strong> Intermediate cardiovascular risk</p>
+            </div>
+
+            <div class="clinical-section">
+                <div class="section-title">History of Presenting Complaint</div>
+                <p>Mrs Phillips reports a 6-month history of central chest tightness, described as a "heavy pressure sensation" that occurs predictably with moderate physical exertion such as walking uphill or climbing stairs. The discomfort is associated with mild breathlessness and occasionally palpitations. Symptoms typically resolve within 2-3 minutes of rest. She denies chest pain at rest, nocturnal symptoms, or orthopnoea. No associated nausea, sweating, or radiation to arms or jaw.</p>
+            </div>
+
+            <div class="clinical-section">
+                <div class="section-title">Past Medical History</div>
+                <ul>
+                    <li>Hypertension (diagnosed 2018, well controlled)</li>
+                    <li>Type 2 diabetes mellitus (diagnosed 2020, HbA1c 7.1%)</li>
+                    <li>Hypercholesterolaemia (total cholesterol 5.2 mmol/L)</li>
+                    <li>Previous smoker (20 pack-years, quit 2019)</li>
+                    <li>Family history of ischaemic heart disease (father, MI age 62)</li>
+                </ul>
+            </div>
+
+            <div class="clinical-section">
+                <div class="section-title">Physical Examination</div>
+                <table class="findings-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Finding</th>
+                            <th>Normal Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blood Pressure</td>
+                            <td>142/84 mmHg</td>
+                            <td>&lt;140/90 mmHg</td>
+                        </tr>
+                        <tr>
+                            <td>Heart Rate</td>
+                            <td>76 bpm regular</td>
+                            <td>60-100 bpm</td>
+                        </tr>
+                        <tr>
+                            <td>BMI</td>
+                            <td>28.3 kg/m²</td>
+                            <td>18.5-24.9 kg/m²</td>
+                        </tr>
+                        <tr>
+                            <td>Heart Sounds</td>
+                            <td>Normal S1, S2. No murmurs</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Chest</td>
+                            <td>Clear to auscultation</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Peripheral Pulses</td>
+                            <td>Present and equal</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Peripheral Oedema</td>
+                            <td>Nil</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="clinical-section">
+                <div class="section-title">Investigations Performed</div>
+                <p><strong>ECG (22/08/2025):</strong> Normal sinus rhythm. No evidence of ischaemia or previous infarction. QRS 98ms, QTc 425ms.</p>
+                
+                <p><strong>Echocardiogram (22/08/2025):</strong> Normal left ventricular systolic function (LVEF 58%). Normal chamber sizes. No significant valvular disease. E/e' ratio 8.5 (normal diastolic function).</p>
+                
+                <p><strong>Recent Blood Results (18/08/2025):</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>HbA1c: 7.1% (54 mmol/mol)</li>
+                    <li>Total cholesterol: 5.2 mmol/L</li>
+                    <li>LDL cholesterol: 3.4 mmol/L</li>
+                    <li>HDL cholesterol: 1.1 mmol/L</li>
+                    <li>Triglycerides: 1.8 mmol/L</li>
+                    <li>eGFR: 78 ml/min/1.73m²</li>
+                    <li>Troponin I: &lt;0.01 µg/L (normal)</li>
+                </ul>
+            </div>
+
+            <div class="medications-section">
+                <div class="medications-title">Current Medications</div>
+                <ul class="medication-list">
+                    <li class="medication-item">
+                        <div class="medication-name">Amlodipine 5mg once daily</div>
+                        <div class="medication-details">For hypertension - continue current dose</div>
+                    </li>
+                    <li class="medication-item">
+                        <div class="medication-name">Metformin 500mg twice daily</div>
+                        <div class="medication-details">For type 2 diabetes - continue current dose</div>
+                    </li>
+                    <li class="medication-item">
+                        <div class="medication-name">Simvastatin 40mg once daily at night</div>
+                        <div class="medication-details">For hypercholesterolaemia - continue current dose</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="clinical-section">
+                <div class="section-title">Management Plan</div>
+                <h4 style="color: #005eb8; margin: 15px 0 10px 0;">Immediate Actions:</h4>
+                <ol>
+                    <li><strong>Exercise Stress Test:</strong> Arranged for 15th September 2025 to assess for inducible ischaemia</li>
+                    <li><strong>Antiplatelet Therapy:</strong> Commenced aspirin 75mg once daily</li>
+                    <li><strong>Antianginal Therapy:</strong> Prescribed sublingual GTN spray for symptom relief</li>
+                    <li><strong>Lifestyle Advice:</strong> Dietary consultation arranged for cardiovascular risk reduction</li>
+                </ol>
+                
+                <h4 style="color: #005eb8; margin: 15px 0 10px 0;">Pending Investigations:</h4>
+                <ul>
+                    <li>Exercise stress test (if negative, consider CT coronary angiogram)</li>
+                    <li>Repeat lipid profile in 6 weeks following lifestyle modifications</li>
+                </ul>
+                
+                <h4 style="color: #005eb8; margin: 15px 0 10px 0;">Risk Factor Modification:</h4>
+                <ul>
+                    <li>Target LDL cholesterol &lt;1.8 mmol/L (consider statin intensification if needed)</li>
+                    <li>Weight reduction target: BMI &lt;25 kg/m²</li>
+                    <li>Blood pressure target: &lt;130/80 mmHg</li>
+                    <li>Diabetes management: HbA1c target &lt;7%</li>
+                </ul>
+            </div>
+
+            <div class="follow-up-section">
+                <div class="follow-up-title">Follow-up Arrangements</div>
+                <div class="appointment-grid">
+                    <div class="appointment-card">
+                        <div class="appointment-type">Exercise Stress Test</div>
+                        <p><strong>Date:</strong> 15th September 2025<br>
+                        <strong>Time:</strong> 10:00 AM<br>
+                        <strong>Location:</strong> Cardiac Investigation Unit<br>
+                        <strong>Fasting:</strong> Not required</p>
+                    </div>
+                    <div class="appointment-card">
+                        <div class="appointment-type">Cardiology Follow-up</div>
+                        <p><strong>Date:</strong> 10th October 2025<br>
+                        <strong>Time:</strong> 2:30 PM<br>
+                        <strong>Location:</strong> Cardiology Outpatients<br>
+                        <strong>Purpose:</strong> Review test results</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important-notes">
+                <div class="notes-title">Important Patient Advice</div>
+                <ul>
+                    <li><strong>Symptom Management:</strong> Use GTN spray for chest discomfort (1-2 sprays under tongue, may repeat after 5 minutes if needed)</li>
+                    <li><strong>Emergency Action:</strong> Seek immediate medical attention if chest pain persists >10 minutes despite GTN, or if symptoms worsen</li>
+                    <li><strong>Activity:</strong> Continue normal activities but avoid strenuous exertion until stress test completed</li>
+                    <li><strong>Medication Compliance:</strong> Continue all current medications as prescribed</li>
+                </ul>
+            </div>
+
+            <div class="disclaimer">
+                <strong>Clinical Responsibility:</strong> This letter summarises the consultation findings and recommendations. Please contact our department if you require any clarification or have concerns about the patient's management.
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-title">Contact Information</div>
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <h5>Cardiology Secretary</h5>
+                        <p>029 2074 7747<br>Mon-Fri 9:00-17:00</p>
+                    </div>
+                    <div class="contact-method">
+                        <h5>Cardiac Investigation Unit</h5>
+                        <p>029 2074 3025<br>Mon-Fri 8:00-18:00</p>
+                    </div>
+                    <div class="contact-method">
+                        <h5>Emergency Contact</h5>
+                        <p>Cardiology Registrar<br>via Hospital Switchboard</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="signature-section">
+                <div class="doctor-info">
+                    <div class="doctor-details">
+                        <h4>Dr. Helen R. Morgan</h4>
+                        <p>Consultant Cardiologist<br>
+                        MBBCh, MD, FRCP, FESC<br>
+                        Cardiff and Vale University Health Board<br>
+                        GMC: 1234567</p>
+                    </div>
+                    <div style="text-align: right; color: #666; font-size: 10pt;">
+                        <p>Dictated: 23/08/2025<br>
+                        Typed: 24/08/2025<br>
+                        Authorised: 28/08/2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cc-section">
+                <p><strong>cc:</strong> Mrs Margaret Phillips, Patient Administration System, Cardiology Database</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Cardiff and Vale University Health Board</strong> | Bwrdd Iechyd Prifysgol Caerdydd a'r Fro<br>
+            This letter contains confidential patient information. Please handle according to data protection guidelines.<br>
+            Page 1 of 1 | Reference: CV/HRM/2025/0822</p>
+        </div>
+    </div>
+</body>
+</html>

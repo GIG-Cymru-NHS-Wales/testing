@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Examination Report</title>
+    <style>
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+        }
+        .letter-container {
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-radius: 12px;
+            border-top: 6px solid #2c5aa0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2c5aa0;
+        }
+        .practice-logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+        }
+        .eye-icon {
+            color: white;
+            font-size: 42pt;
+        }
+        .practice-info {
+            flex-grow: 1;
+        }
+        .practice-name {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #2c5aa0;
+            margin-bottom: 8px;
+        }
+        .practice-tagline {
+            font-size: 12pt;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .practice-details {
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.4;
+        }
+        .credentials {
+            background-color: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-top: 8px;
+            font-size: 9pt;
+            color: #555;
+        }
+        .patient-details {
+            float: right;
+            width: 320px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid #2c5aa0;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(44, 90, 160, 0.2);
+        }
+        .patient-details h3 {
+            margin: 0 0 15px 0;
+            color: #2c5aa0;
+            font-size: 12pt;
+            text-align: center;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 8px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 10pt;
+        }
+        .patient-details .label {
+            font-weight: bold;
+            color: #555;
+            width: 100px;
+        }
+        .letter-content {
+            clear: both;
+            margin-top: 35px;
+        }
+        .date {
+            text-align: right;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #666;
+        }
+        .exam-summary {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+        }
+        .exam-summary h2 {
+            margin: 0 0 12px 0;
+            font-size: 18pt;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .exam-summary .exam-date {
+            font-size: 14pt;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .vision-results {
+            background-color: #f8f9fa;
+            border: 2px solid #28a745;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .vision-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .vision-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #28a745;
+        }
+        .vision-card h4 {
+            margin: 0 0 15px 0;
+            color: #155724;
+            font-size: 12pt;
+            text-align: center;
+        }
+        .vision-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .vision-table th {
+            background-color: #e8f5e9;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .vision-table td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 10pt;
+        }
+        .prescription-section {
+            background-color: #fff3e0;
+            border: 2px solid #ff9800;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .prescription-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #e65100;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .prescription-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .prescription-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 18px;
+            border-left: 5px solid #ff9800;
+        }
+        .prescription-card h5 {
+            margin: 0 0 12px 0;
+            color: #e65100;
+            font-size: 11pt;
+            text-align: center;
+        }
+        .rx-details {
+            font-family: 'Courier New', monospace;
+            background-color: #f5f5f5;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 10pt;
+        }
+        .health-assessment {
+            background-color: #e8f4fd;
+            border-left: 6px solid #2196f3;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .assessment-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 20px;
+        }
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .assessment-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+        .assessment-item h5 {
+            margin: 0 0 8px 0;
+            color: #1976d2;
+            font-size: 11pt;
+        }
+        .status-good { color: #28a745; font-weight: bold; }
+        .status-monitor { color: #ffc107; font-weight: bold; }
+        .status-concern { color: #dc3545; font-weight: bold; }
+        .recommendations {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .recommendations-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .rec-categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .rec-category {
+            background-color: white;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+        }
+        .rec-category h5 {
+            margin: 0 0 12px 0;
+            color: #0c5460;
+            font-size: 11pt;
+        }
+        .rec-category ul {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        .rec-category li {
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+        .follow-up {
+            background: linear-gradient(135deg, #f8bbd9, #f48fb1);
+            border: 2px solid #e91e63;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .follow-up-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #880e4f;
+            margin-bottom: 15px;
+        }
+        .next-appointment {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e91e63;
+        }
+        .appointment-details {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #880e4f;
+        }
+        .contact-section {
+            background-color: #e2e3e5;
+            border: 1px solid #6c757d;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contact-title {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 12pt;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .contact-method {
+            background-color: white;
+            padding: 12px 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .contact-icon {
+            font-size: 18pt;
+            margin-bottom: 8px;
+        }
+        .contact-method h6 {
+            margin: 0 0 4px 0;
+            color: #495057;
+            font-size: 9pt;
+        }
+        .contact-method p {
+            margin: 0;
+            font-size: 8pt;
+            color: #666;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #2c5aa0;
+            font-size: 10pt;
+            color: #666;
+            text-align: center;
+        }
+        .signature-section {
+            margin: 35px 0;
+            text-align: left;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+        }
+        .optometrist-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .optometrist-details h4 {
+            margin: 0 0 8px 0;
+            color: #2c5aa0;
+            font-size: 12pt;
+        }
+        .optometrist-details p {
+            margin: 0;
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.4;
+        }
+        .eye-decoration {
+            font-size: 24pt;
+            text-align: center;
+            margin: 25px 0;
+            opacity: 0.6;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .note-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="header">
+            <div class="practice-logo">
+                <div class="eye-icon">👁️</div>
+            </div>
+            <div class="practice-info">
+                <div class="practice-name">Cardiff Vision Centre</div>
+                <div class="practice-tagline">"Comprehensive Eye Care for the Whole Family"</div>
+                <div class="practice-details">
+                    126 Albany Road, Roath, Cardiff, CF24 3RS<br>
+                    Tel: 029 2049 7890 | Email: appointments@cardiffvision.co.uk<br>
+                    www.cardiffvision.co.uk | Emergency: 07555 123 456
+                </div>
+                <div class="credentials">
+                    GOC Registered Practice | NHS & Private Eye Care | LOCSU Accredited
+                </div>
+            </div>
+        </div>
+
+        <div class="patient-details">
+            <h3>Patient Information</h3>
+            <table>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td>Mrs Linda C. Roberts</td>
+                </tr>
+                <tr>
+                    <td class="label">DOB:</td>
+                    <td>14/03/1972 (53 years)</td>
+                </tr>
+                <tr>
+                    <td class="label">NHS Number:</td>
+                    <td>567 890 1234</td>
+                </tr>
+                <tr>
+                    <td class="label">Address:</td>
+                    <td>89 Penylan Road<br>Cardiff<br>CF23 9EU</td>
+                </tr>
+                <tr>
+                    <td class="label">Phone:</td>
+                    <td>029 2078 9012</td>
+                </tr>
+                <tr>
+                    <td class="label">GP Practice:</td>
+                    <td>Penylan Medical Centre</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Eye Test:</td>
+                    <td>15/08/2023</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="letter-content">
+            <div class="date">28th August 2025</div>
+            
+            <p>Dear Mrs Roberts,</p>
+
+            <div class="exam-summary">
+                <h2>👁️ COMPREHENSIVE EYE EXAMINATION COMPLETE</h2>
+                <div class="exam-date">Examination Date: 26th August 2025</div>
+                <p>Your annual eye health assessment has been completed successfully</p>
+            </div>
+
+            <p>Thank you for attending your comprehensive eye examination at Cardiff Vision Centre. This letter summarises your eye health status, vision assessment results, and our recommendations for maintaining optimal eye health.</p>
+
+            <div class="vision-results">
+                <div class="vision-title">📊 Vision Assessment Results</div>
+                <div class="vision-grid">
+                    <div class="vision-card">
+                        <h4>Distance Vision</h4>
+                        <table class="vision-table">
+                            <thead>
+                                <tr>
+                                    <th>Eye</th>
+                                    <th>Unaided</th>
+                                    <th>Corrected</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Right</strong></td>
+                                    <td>6/18</td>
+                                    <td>6/6</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Left</strong></td>
+                                    <td>6/24</td>
+                                    <td>6/6</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Both</strong></td>
+                                    <td>6/15</td>
+                                    <td>6/6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="vision-card">
+                        <h4>Near Vision</h4>
+                        <table class="vision-table">
+                            <thead>
+                                <tr>
+                                    <th>Eye</th>
+                                    <th>Unaided</th>
+                                    <th>Corrected</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Right</strong></td>
+                                    <td>N8</td>
+                                    <td>N5</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Left</strong></td>
+                                    <td>N10</td>
+                                    <td>N5</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Both</strong></td>
+                                    <td>N6</td>
+                                    <td>N5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prescription-section">
+                <div class="prescription-title">👓 Updated Prescription</div>
+                <p style="text-align: center; color: #e65100; font-weight: bold; margin-bottom: 20px;">Your prescription has changed since your last visit - new glasses recommended</p>
+                <div class="prescription-grid">
+                    <div class="prescription-card">
+                        <h5>Right Eye (OD)</h5>
+                        <div class="rx-details">
+                            Sphere (SPH): -1.75<br>
+                            Cylinder (CYL): -0.50<br>
+                            Axis: 180°<br>
+                            Addition: +1.25
+                        </div>
+                        <p style="font-size: 9pt; color: #666; text-align: center; margin-top: 8px;">
+                            Previous: -1.50 / -0.25 x 175° Add +1.00
+                        </p>
+                    </div>
+                    <div class="prescription-card">
+                        <h5>Left Eye (OS)</h5>
+                        <div class="rx-details">
+                            Sphere (SPH): -1.50<br>
+                            Cylinder (CYL): -0.75<br>
+                            Axis: 015°<br>
+                            Addition: +1.25
+                        </div>
+                        <p style="font-size: 9pt; color: #666; text-align: center; margin-top: 8px;">
+                            Previous: -1.25 / -0.50 x 010° Add +1.00
+                        </p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-size: 10pt; color: #666;">
+                    <strong>Pupillary Distance (PD):</strong> 62mm | <strong>Prescription Valid:</strong> 2 years from examination date
+                </p>
+            </div>
+
+            <div class="health-assessment">
+                <div class="assessment-title">🔍 Eye Health Assessment</div>
+                <div class="assessment-grid">
+                    <div class="assessment-item">
+                        <h5>Intraocular Pressure</h5>
+                        <p>Right Eye: 16 mmHg <span class="status-good">✓ Normal</span><br>
+                        Left Eye: 15 mmHg <span class="status-good">✓ Normal</span></p>
+                    </div>
+                    <div class="assessment-item">
+                        <h5>Retinal Health</h5>
+                        <p>Optic discs: <span class="status-good">Healthy</span><br>
+                        Maculae: <span class="status-good">Clear</span><br>
+                        Blood vessels: <span class="status-good">Normal</span></p>
+                    </div>
+                    <div class="assessment-item">
+                        <h5>Anterior Eye Health</h5>
+                        <p>Cornea: <span class="status-good">Clear</span><br>
+                        Lens: <span class="status-monitor">Early cortical changes</span><br>
+                        Conjunctiva: <span class="status-good">Healthy</span></p>
+                    </div>
+                    <div class="assessment-item">
+                        <h5>Visual Field</h5>
+                        <p>Central field: <span class="status-good">Full</span><br>
+                        Peripheral vision: <span class="status-good">Normal</span><br>
+                        Blind spot: <span class="status-good">Normal</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important-note">
+                <div class="note-title">📋 Key Findings:</div>
+                <ul style="margin: 8px 0; padding-left: 20px;">
+                    <li><strong>Prescription Change:</strong> Your myopia (short-sightedness) has progressed slightly, and reading addition has increased</li>
+                    <li><strong>Early Cataracts:</strong> Very early cortical lens changes detected - common at your age, no treatment needed currently</li>
+                    <li><strong>Dry Eyes:</strong> Mild symptoms reported - recommend artificial tears and lifestyle modifications</li>
+                    <li><strong>Overall Assessment:</strong> Good eye health with normal retinal and optic nerve appearance</li>
+                </ul>
+            </div>
+
+            <div class="recommendations">
+                <div class="recommendations-title">💡 Personalized Recommendations</div>
+                <div class="rec-categories">
+                    <div class="rec-category">
+                        <h5>🥽 Vision Correction</h5>
+                        <ul>
+                            <li>New progressive lenses recommended for optimal vision</li>
+                            <li>Consider anti-reflection coating for computer work</li>
+                            <li>Blue light filtering may help with digital eye strain</li>
+                            <li>Prescription sunglasses for UV protection</li>
+                        </ul>
+                    </div>
+                    <div class="rec-category">
+                        <h5>👁️ Eye Health Maintenance</h5>
+                        <ul>
+                            <li>Use preservative-free artificial tears 2-3 times daily</li>
+                            <li>Take regular breaks during screen use (20-20-20 rule)</li>
+                            <li>Maintain good lighting when reading</li>
+                            <li>Stay hydrated and maintain healthy diet</li>
+                        </ul>
+                    </div>
+                    <div class="rec-category">
+                        <h5>🌅 Lifestyle Advice</h5>
+                        <ul>
+                            <li>Wear UV-protective sunglasses outdoors</li>
+                            <li>Include omega-3 fatty acids in diet</li>
+                            <li>Eat foods rich in vitamins A, C, and E</li>
+                            <li>Maintain healthy blood pressure and cholesterol</li>
+                        </ul>
+                    </div>
+                    <div class="rec-category">
+                        <h5>⚠️ Watch For</h5>
+                        <ul>
+                            <li>Sudden changes in vision</li>
+                            <li>Flashing lights or new floaters</li>
+                            <li>Persistent eye pain or redness</li>
+                            <li>Halos around lights at night</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="eye-decoration">👁️ 🤓 👁️ 🔍 👁️</div>
+
+            <div class="follow-up">
+                <div class="follow-up-title">📅 Follow-up Care</div>
+                <div class="next-appointment">
+                    <div class="appointment-details">Next Comprehensive Eye Exam</div>
+                    <p><strong>Recommended Date:</strong> August 2026 (12 months)<br>
+                    <strong>Reason:</strong> Routine monitoring of early lens changes and prescription stability</p>
+                </div>
+                <p style="margin-top: 15px; color: #880e4f; font-size: 10pt;">
+                    <strong>Earlier review recommended if:</strong> Vision changes, eye discomfort increases, or new symptoms develop
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-title">📞 Contact Cardiff Vision Centre</div>
+                <p>Our experienced team is here to support your eye health needs</p>
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📞</div>
+                        <h6>Appointments</h6>
+                        <p>029 2049 7890<br>Mon-Sat 9:00-18:00</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">🆘</div>
+                        <h6>Emergency</h6>
+                        <p>07555 123 456<br>Out of hours support</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">💻</div>
+                        <h6>Online</h6>
+                        <p>cardiffvision.co.uk<br>Book appointments</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <h6>Email</h6>
+                        <p>info@cardiffvision.co.uk<br>General enquiries</p>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Our Services:</strong> NHS eye tests, private consultations, contact lens fittings, specialist referrals, children's eye care, and comprehensive frame selection from leading brands.</p>
+
+            <p>Thank you for choosing Cardiff Vision Centre for your eye care needs. We are committed to helping you maintain excellent vision and eye health throughout your life.</p>
+
+            <div class="signature-section">
+                <div class="optometrist-info">
+                    <div class="optometrist-details">
+                        <h4>Mr. Andrew J. Davies</h4>
+                        <p>BSc (Hons) Optometry, FBCO, MCOPTOM<br>
+                        Specialist Optometrist<br>
+                        Cardiff Vision Centre<br>
+                        GOC Registration: 12345678</p>
+                    </div>
+                    <div style="text-align: right; color: #666; font-size: 10pt;">
+                        <p>Examination: 26/08/2025<br>
+                        Report: 28/08/2025<br>
+                        Ref: CV-LR-2025-0826</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Cardiff Vision Centre</strong> - Independent Optometry Practice<br>
+            GOC Registered | NHS Approved | LOCSU Accredited | Professional Indemnity Insured<br>
+            This report contains confidential patient information. Please store securely.</p>
+        </div>
+    </div>
+</body>
+</html>

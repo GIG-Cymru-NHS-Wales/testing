@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Test Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .letter-container {
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            border-top: 5px solid #005eb8;
+        }
+        .header {
+            margin-bottom: 30px;
+            border-bottom: 3px solid #005eb8;
+            padding-bottom: 20px;
+        }
+        .nhs-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .nhs-logo {
+            width: 80px;
+            height: 32px;
+            background-color: #005eb8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14pt;
+            margin-right: 25px;
+        }
+        .practice-info {
+            flex-grow: 1;
+        }
+        .practice-name {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #005eb8;
+            margin-bottom: 5px;
+        }
+        .practice-details {
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.3;
+        }
+        .results-header {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+        }
+        .results-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .test-date {
+            font-size: 12pt;
+            margin: 8px 0;
+        }
+        .patient-details {
+            float: right;
+            width: 300px;
+            background-color: #e8f4fd;
+            border: 2px solid #005eb8;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 94, 184, 0.2);
+        }
+        .patient-details h3 {
+            margin: 0 0 15px 0;
+            color: #005eb8;
+            font-size: 12pt;
+            text-align: center;
+            border-bottom: 2px solid #005eb8;
+            padding-bottom: 8px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 10pt;
+        }
+        .patient-details .label {
+            font-weight: bold;
+            color: #555;
+            width: 100px;
+        }
+        .letter-content {
+            clear: both;
+            margin-top: 35px;
+        }
+        .date {
+            text-align: right;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #666;
+        }
+        .overall-summary {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .summary-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .summary-content {
+            text-align: center;
+            color: #155724;
+        }
+        .results-section {
+            margin: 30px 0;
+        }
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #005eb8;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #005eb8;
+        }
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .results-table th {
+            background: linear-gradient(135deg, #005eb8, #004499);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 11pt;
+        }
+        .results-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 10pt;
+            vertical-align: middle;
+        }
+        .results-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .results-table tr:hover {
+            background-color: #e3f2fd;
+        }
+        .test-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .result-value {
+            font-weight: bold;
+            font-size: 11pt;
+        }
+        .status-normal {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .status-abnormal {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .status-borderline {
+            color: #fd7e14;
+            font-weight: bold;
+        }
+        .flag-high {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        .flag-low {
+            background-color: #cce5ff;
+            color: #004085;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        .interpretation {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .interpretation-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        .interpretation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        .interpretation-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #ffc107;
+        }
+        .interpretation-item h5 {
+            margin: 0 0 8px 0;
+            color: #856404;
+            font-size: 11pt;
+        }
+        .recommendations {
+            background-color: #d1ecf1;
+            border: 2px solid #17a2b8;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .recommendations-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #0c5460;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .rec-categories {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .rec-category {
+            background-color: white;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+        }
+        .rec-category h5 {
+            margin: 0 0 12px 0;
+            color: #0c5460;
+            font-size: 11pt;
+        }
+        .rec-category ul {
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+        .rec-category li {
+            margin-bottom: 6px;
+            font-size: 10pt;
+        }
+        .follow-up {
+            background: linear-gradient(135deg, #f8bbd9, #f48fb1);
+            border: 2px solid #e91e63;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .follow-up-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #880e4f;
+            margin-bottom: 15px;
+        }
+        .next-tests {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #e91e63;
+        }
+        .test-schedule {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #880e4f;
+            margin-bottom: 8px;
+        }
+        .important-notes {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        .notes-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #721c24;
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            background-color: #e2e3e5;
+            border: 1px solid #6c757d;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .contact-title {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 12pt;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .contact-method {
+            background-color: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .contact-icon {
+            font-size: 16pt;
+            margin-bottom: 8px;
+        }
+        .contact-method h6 {
+            margin: 0 0 4px 0;
+            color: #495057;
+            font-size: 10pt;
+        }
+        .contact-method p {
+            margin: 0;
+            font-size: 9pt;
+            color: #666;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #005eb8;
+            font-size: 10pt;
+            color: #666;
+            text-align: center;
+        }
+        .signature-section {
+            margin: 35px 0;
+            text-align: left;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+        }
+        .doctor-info {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .doctor-details h4 {
+            margin: 0 0 8px 0;
+            color: #005eb8;
+            font-size: 12pt;
+        }
+        .doctor-details p {
+            margin: 0;
+            font-size: 10pt;
+            color: #666;
+            line-height: 1.4;
+        }
+        .lab-decoration {
+            font-size: 20pt;
+            text-align: center;
+            margin: 25px 0;
+            opacity: 0.6;
+        }
+        .trend-indicator {
+            font-size: 12pt;
+            margin-left: 8px;
+        }
+        .trend-up { color: #dc3545; }
+        .trend-down { color: #28a745; }
+        .trend-stable { color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="header">
+            <div class="nhs-header">
+                <div class="nhs-logo">NHS</div>
+                <div class="practice-info">
+                    <div class="practice-name">Whitchurch Medical Practice</div>
+                    <div class="practice-details">
+                        15 Merthyr Road, Whitchurch, Cardiff, CF14 1DJ<br>
+                        Tel: 029 2062 3456 | Email: results@whitchurchmedical.wales<br>
+                        Laboratory Partner: Cardiff & Vale Pathology Services
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-header">
+            <div class="results-title">🩸 BLOOD TEST RESULTS</div>
+            <div class="test-date">Sample Collected: 24th August 2025 | Results Available: 26th August 2025</div>
+            <p>Comprehensive Metabolic Panel & Lipid Profile</p>
+        </div>
+
+        <div class="patient-details">
+            <h3>Patient Information</h3>
+            <table>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td>Mr Peter G. Williams</td>
+                </tr>
+                <tr>
+                    <td class="label">DOB:</td>
+                    <td>05/11/1968 (56 years)</td>
+                </tr>
+                <tr>
+                    <td class="label">NHS Number:</td>
+                    <td>678 901 2345</td>
+                </tr>
+                <tr>
+                    <td class="label">Sample ID:</td>
+                    <td>WM-2025-082456</td>
+                </tr>
+                <tr>
+                    <td class="label">Requesting Dr:</td>
+                    <td>Dr. Susan Clarke</td>
+                </tr>
+                <tr>
+                    <td class="label">Sample Type:</td>
+                    <td>Venous blood (fasting)</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Results:</td>
+                    <td>February 2025</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="letter-content">
+            <div class="date">28th August 2025</div>
+            
+            <p>Dear Mr Williams,</p>
+
+            <div class="overall-summary">
+                <div class="summary-title">📊 Overall Results Summary</div>
+                <div class="summary-content">
+                    <p><strong>Good news!</strong> Most of your results show significant improvement since your last tests.<br>
+                    A few values require monitoring and lifestyle adjustments as detailed below.</p>
+                </div>
+            </div>
+
+            <p>Thank you for attending for your routine blood tests. The results of your comprehensive metabolic panel and lipid profile are now available. Overall, your results show positive trends, with some areas requiring continued attention.</p>
+
+            <div class="results-section">
+                <div class="section-title">🩸 Complete Blood Count (CBC)</div>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Result</th>
+                            <th>Reference Range</th>
+                            <th>Status</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="test-name">Haemoglobin</td>
+                            <td class="result-value">14.8 g/dL</td>
+                            <td>13.0 - 17.0 g/dL</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">White Blood Cells</td>
+                            <td class="result-value">6.2 × 10³/μL</td>
+                            <td>4.0 - 11.0 × 10³/μL</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Platelets</td>
+                            <td class="result-value">285 × 10³/μL</td>
+                            <td>150 - 400 × 10³/μL</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-up">↑</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Haematocrit</td>
+                            <td class="result-value">43.2%</td>
+                            <td>38.0 - 50.0%</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="results-section">
+                <div class="section-title">⚗️ Metabolic Panel</div>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Result</th>
+                            <th>Reference Range</th>
+                            <th>Status</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="test-name">Glucose (Fasting)</td>
+                            <td class="result-value">6.8 mmol/L</td>
+                            <td>3.9 - 5.6 mmol/L</td>
+                            <td class="status-borderline">Borderline <span class="flag-high">HIGH</span></td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">HbA1c</td>
+                            <td class="result-value">6.2% (44 mmol/mol)</td>
+                            <td>&lt;5.7% (&lt;39 mmol/mol)</td>
+                            <td class="status-borderline">Pre-diabetic range</td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Creatinine</td>
+                            <td class="result-value">98 μmol/L</td>
+                            <td>60 - 120 μmol/L</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">eGFR</td>
+                            <td class="result-value">&gt;90 mL/min/1.73m²</td>
+                            <td>&gt;90 mL/min/1.73m²</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Sodium</td>
+                            <td class="result-value">142 mmol/L</td>
+                            <td>135 - 145 mmol/L</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Potassium</td>
+                            <td class="result-value">4.1 mmol/L</td>
+                            <td>3.5 - 5.0 mmol/L</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="results-section">
+                <div class="section-title">💓 Lipid Profile</div>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Result</th>
+                            <th>Target</th>
+                            <th>Status</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="test-name">Total Cholesterol</td>
+                            <td class="result-value">4.8 mmol/L</td>
+                            <td>&lt;5.0 mmol/L</td>
+                            <td class="status-normal">Good</td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">LDL Cholesterol</td>
+                            <td class="result-value">2.9 mmol/L</td>
+                            <td>&lt;3.0 mmol/L</td>
+                            <td class="status-normal">Good</td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">HDL Cholesterol</td>
+                            <td class="result-value">1.3 mmol/L</td>
+                            <td>&gt;1.0 mmol/L (men)</td>
+                            <td class="status-normal">Good</td>
+                            <td class="trend-indicator trend-up">↑</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Triglycerides</td>
+                            <td class="result-value">1.9 mmol/L</td>
+                            <td>&lt;1.7 mmol/L</td>
+                            <td class="status-borderline">Borderline <span class="flag-high">HIGH</span></td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Cholesterol/HDL Ratio</td>
+                            <td class="result-value">3.7</td>
+                            <td>&lt;4.0</td>
+                            <td class="status-normal">Good</td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="results-section">
+                <div class="section-title">🫀 Additional Cardiac Markers</div>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Result</th>
+                            <th>Reference Range</th>
+                            <th>Status</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="test-name">CRP (C-Reactive Protein)</td>
+                            <td class="result-value">2.1 mg/L</td>
+                            <td>&lt;3.0 mg/L</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-down">↓</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">Vitamin D</td>
+                            <td class="result-value">68 nmol/L</td>
+                            <td>&gt;50 nmol/L</td>
+                            <td class="status-normal">Adequate</td>
+                            <td class="trend-indicator trend-up">↑</td>
+                        </tr>
+                        <tr>
+                            <td class="test-name">B12</td>
+                            <td class="result-value">425 ng/L</td>
+                            <td>200 - 900 ng/L</td>
+                            <td class="status-normal">Normal</td>
+                            <td class="trend-indicator trend-stable">→</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="interpretation">
+                <div class="interpretation-title">📋 Results Interpretation</div>
+                <div class="interpretation-grid">
+                    <div class="interpretation-item">
+                        <h5>🍯 Glucose Control</h5>
+                        <p>Fasting glucose and HbA1c show improvement but remain in pre-diabetic range. Continue lifestyle modifications to prevent progression to type 2 diabetes.</p>
+                    </div>
+                    <div class="interpretation-item">
+                        <h5>💓 Cholesterol Profile</h5>
+                        <p>Excellent improvement in cholesterol levels! Total and LDL cholesterol now within target ranges. Triglycerides still slightly elevated but improving.</p>
+                    </div>
+                    <div class="interpretation-item">
+                        <h5>🩸 Blood Count</h5>
+                        <p>All blood count parameters are within normal ranges, indicating good overall blood health and no signs of anaemia or infection.</p>
+                    </div>
+                    <div class="interpretation-item">
+                        <h5>🫘 Kidney Function</h5>
+                        <p>Kidney function remains excellent with normal creatinine and eGFR. Electrolytes are well balanced.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-decoration">🧪 📊 🩸 ⚗️ 🧬</div>
+
+            <div class="recommendations">
+                <div class="recommendations-title">💡 Personalized Recommendations</div>
+                <div class="rec-categories">
+                    <div class="rec-category">
+                        <h5>🍎 Dietary Modifications</h5>
+                        <ul>
+                            <li>Continue reduced carbohydrate diet</li>
+                            <li>Increase omega-3 rich fish (2-3 times/week)</li>
+                            <li>Focus on high-fiber foods</li>
+                            <li>Limit processed foods and sugary drinks</li>
+                            <li>Consider Mediterranean diet pattern</li>
+                        </ul>
+                    </div>
+                    <div class="rec-category">
+                        <h5>🏃‍♂️ Exercise & Activity</h5>
+                        <ul>
+                            <li>Maintain current exercise routine (excellent!)</li>
+                            <li>Continue 150+ minutes moderate activity/week</li>
+                            <li>Add 2 resistance training sessions</li>
+                            <li>Consider post-meal walks to help glucose</li>
+                            <li>Track daily steps (aim for 8,000+)</li>
+                        </ul>
+                    </div>
+                    <div class="rec-category">
+                        <h5>💊 Medication Review</h5>
+                        <ul>
+                            <li>Continue current simvastatin 20mg</li>
+                            <li>No changes needed to current medications</li>
+                            <li>Consider metformin discussion if glucose worsens</li>
+                            <li>Maintain vitamin D supplementation</li>
+                            <li>Review medications at next appointment</li>
+                        </ul>
+                    </div>
+                    <div class="rec-category">
+                        <h5>📊 Monitoring Schedule</h5>
+                        <ul>
+                            <li>Repeat HbA1c in 3 months</li>
+                            <li>Full lipid panel in 6 months</li>
+                            <li>Consider home glucose monitoring</li>
+                            <li>Blood pressure checks monthly</li>
+                            <li>Weight monitoring weekly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="follow-up">
+                <div class="follow-up-title">📅 Follow-up Testing Schedule</div>
+                <div class="next-tests">
+                    <div class="test-schedule">Next Blood Tests</div>
+                    <p><strong>HbA1c & Glucose:</strong> November 2025 (3 months)<br>
+                    <strong>Full Panel:</strong> February 2026 (6 months)<br>
+                    <strong>Annual Health Check:</strong> August 2026</p>
+                </div>
+                <p style="margin-top: 15px; color: #880e4f; font-size: 10pt;">
+                    <strong>Earlier testing may be needed if:</strong> Symptoms develop, weight changes significantly, or medication adjustments required
+                </p>
+            </div>
+
+            <div class="important-notes">
+                <div class="notes-title">⚠️ Important Notes</div>
+                <ul style="margin: 8px 0; padding-left: 20px;">
+                    <li><strong>Pre-diabetes Management:</strong> You're in the reversible pre-diabetic stage. Continued lifestyle changes can prevent type 2 diabetes</li>
+                    <li><strong>Excellent Progress:</strong> Your cholesterol management is working very well - keep up the great work!</li>
+                    <li><strong>Medication Compliance:</strong> Continue taking simvastatin as prescribed - it's clearly effective</li>
+                    <li><strong>Symptom Awareness:</strong> Contact us if you develop increased thirst, frequent urination, or unexplained fatigue</li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-title">📞 Contact Whitchurch Medical Practice</div>
+                <p>Our healthcare team is available to discuss your results and support your health journey</p>
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📞</div>
+                        <h6>Appointments</h6>
+                        <p>029 2062 3456<br>Mon-Fri 8:00-18:30</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">💻</div>
+                        <h6>Online Access</h6>
+                        <p>Patient Portal<br>View results & book</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">🩺</div>
+                        <h6>Nurse Clinic</h6>
+                        <p>Diabetes Prevention<br>Available Mon-Wed</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Congratulations on the positive improvements in your results, Mr Williams. Your dedication to lifestyle changes is clearly paying off. Please continue with your current approach and don't hesitate to contact us if you have any questions about your results.</p>
+
+            <div class="signature-section">
+                <div class="doctor-info">
+                    <div class="doctor-details">
+                        <h4>Dr. Susan Clarke</h4>
+                        <p>MBBCh, MRCGP<br>
+                        General Practitioner<br>
+                        Whitchurch Medical Practice<br>
+                        GMC: 2345678</p>
+                    </div>
+                    <div style="text-align: right; color: #666; font-size: 10pt;">
+                        <p>Results reviewed: 27/08/2025<br>
+                        Letter generated: 28/08/2025<br>
+                        Ref: WM-BR-2025-0824</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Whitchurch Medical Practice</strong> - Comprehensive Primary Care<br>
+            Laboratory Partner: Cardiff & Vale Pathology Services | UKAS Accredited<br>
+            This report contains confidential patient information. Please keep secure.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergy Season Tips</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+        }
+        .letter-container {
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .seasonal-banner {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        .seasonal-banner h1 {
+            margin: 0;
+            font-size: 24pt;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .seasonal-banner .subtitle {
+            font-size: 12pt;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+        .practice-info {
+            background-color: #f8f9fa;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .practice-name {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .practice-details {
+            font-size: 10pt;
+            color: #666;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .patient-details {
+            float: right;
+            width: 280px;
+            background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(33, 150, 243, 0.2);
+        }
+        .patient-details h3 {
+            margin: 0 0 12px 0;
+            color: #1976d2;
+            font-size: 12pt;
+            text-align: center;
+            border-bottom: 1px solid #1976d2;
+            padding-bottom: 5px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 10pt;
+        }
+        .patient-details .label {
+            font-weight: bold;
+            color: #555;
+            width: 90px;
+        }
+        .letter-content {
+            clear: both;
+            margin-top: 30px;
+        }
+        .date {
+            text-align: right;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #666;
+        }
+        .season-alert {
+            background: linear-gradient(135deg, #ffeb3b, #ffc107);
+            border: 2px solid #ff9800;
+            color: #e65100;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        }
+        .season-alert h2 {
+            margin: 0 0 10px 0;
+            font-size: 16pt;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .pollen-forecast {
+            background-color: #fff3e0;
+            border: 2px solid #ff9800;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+        .pollen-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #f57c00;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .pollen-levels {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .pollen-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .pollen-type {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .pollen-level {
+            font-size: 14pt;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: white;
+        }
+        .level-high { background-color: #f44336; }
+        .level-medium { background-color: #ff9800; }
+        .level-low { background-color: #4caf50; }
+        .tips-section {
+            background-color: #e8f5e8;
+            border-left: 6px solid #4caf50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .tips-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .tip-category {
+            background-color: white;
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .tip-category h4 {
+            color: #2e7d32;
+            margin: 0 0 12px 0;
+            font-size: 12pt;
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 5px;
+        }
+        .tip-category ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .tip-category li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .medication-reminder {
+            background: linear-gradient(135deg, #f3e5f5, #e1f5fe);
+            border: 2px solid #9c27b0;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+        .medication-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #7b1fa2;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .medication-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .medication-type {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #9c27b0;
+        }
+        .medication-type h5 {
+            margin: 0 0 8px 0;
+            color: #7b1fa2;
+            font-size: 11pt;
+        }
+        .emergency-section {
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            border: 2px solid #e91e63;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+        }
+        .emergency-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #c2185b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .warning-signs {
+            background-color: white;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .contact-info {
+            background-color: #e3f2fd;
+            border: 1px solid #2196f3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contact-title {
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-size: 12pt;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .contact-method {
+            background-color: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .contact-icon {
+            font-size: 16pt;
+            margin-bottom: 8px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #4caf50;
+            font-size: 10pt;
+            color: #666;
+            text-align: center;
+        }
+        .signature-section {
+            margin: 30px 0;
+            text-align: left;
+        }
+        .flower-decoration {
+            font-size: 18pt;
+            text-align: center;
+            margin: 25px 0;
+            opacity: 0.6;
+        }
+        .seasonal-icon {
+            font-size: 48pt;
+            opacity: 0.1;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="header">
+            <div class="seasonal-icon">🌸</div>
+            <div class="seasonal-banner">
+                <h1>🌻 Allergy Season Survival Guide 🌼</h1>
+                <div class="subtitle">Your personalized guide to managing seasonal allergies</div>
+            </div>
+        </div>
+
+        <div class="practice-info">
+            <div class="practice-name">Riverside Family Health Centre</div>
+            <div class="practice-details">
+                15 Cathedral Road, Cardiff, CF11 9HA<br>
+                Tel: 029 2023 4567 | Email: allergies@riverside-health.wales<br>
+                www.riverside-health.wales | Allergy Clinic Specialist Centre
+            </div>
+        </div>
+
+        <div class="patient-details">
+            <h3>Patient Information</h3>
+            <table>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td>Mrs Rachel K. Evans</td>
+                </tr>
+                <tr>
+                    <td class="label">DOB:</td>
+                    <td>12/04/1978</td>
+                </tr>
+                <tr>
+                    <td class="label">Patient ID:</td>
+                    <td>RFH-2024-3456</td>
+                </tr>
+                <tr>
+                    <td class="label">Known Allergies:</td>
+                    <td>Grass pollen, Tree pollen, Dust mites</td>
+                </tr>
+                <tr>
+                    <td class="label">Current Meds:</td>
+                    <td>Cetirizine 10mg daily, Nasal spray PRN</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Review:</td>
+                    <td>10/03/2025</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="letter-content">
+            <div class="date">28th August 2025</div>
+            
+            <p>Dear Mrs Evans,</p>
+
+            <div class="season-alert">
+                <h2>🌿 Peak Allergy Season Approaching! 🌿</h2>
+                <p>September-October brings high pollen levels. Time to prepare your allergy management plan!</p>
+            </div>
+
+            <p>As we enter the peak allergy season, we wanted to provide you with personalized tips and reminders to help you manage your seasonal allergies effectively. Based on your medical history and known allergens, here's your comprehensive guide:</p>
+
+            <div class="pollen-forecast">
+                <div class="pollen-title">🌡️ Current Pollen Forecast - Cardiff Area</div>
+                <div class="pollen-levels">
+                    <div class="pollen-card">
+                        <div class="pollen-type">Grass Pollen</div>
+                        <div class="pollen-level level-high">HIGH</div>
+                        <small>Peak: 6am-10am</small>
+                    </div>
+                    <div class="pollen-card">
+                        <div class="pollen-type">Tree Pollen</div>
+                        <div class="pollen-level level-medium">MEDIUM</div>
+                        <small>Peak: 5am-10am</small>
+                    </div>
+                    <div class="pollen-card">
+                        <div class="pollen-type">Weed Pollen</div>
+                        <div class="pollen-level level-low">LOW</div>
+                        <small>Minimal risk</small>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-size: 10pt; color: #666;">
+                    📱 Download the Met Office Weather app for daily pollen forecasts
+                </p>
+            </div>
+
+            <div class="tips-section">
+                <div class="tips-title">🛡️ Your Personalized Allergy Management Tips</div>
+                <div class="tips-grid">
+                    <div class="tip-category">
+                        <h4>🏠 Indoor Protection</h4>
+                        <ul>
+                            <li>Keep windows closed during high pollen days</li>
+                            <li>Use air conditioning with HEPA filters</li>
+                            <li>Shower after being outdoors</li>
+                            <li>Wash bedding weekly in hot water</li>
+                            <li>Dry clothes indoors, not outside</li>
+                        </ul>
+                    </div>
+                    <div class="tip-category">
+                        <h4>🚶‍♀️ Outdoor Activities</h4>
+                        <ul>
+                            <li>Exercise indoors during peak pollen times</li>
+                            <li>Wear wraparound sunglasses</li>
+                            <li>Apply petroleum jelly around nostrils</li>
+                            <li>Check pollen count before going out</li>
+                            <li>Avoid mowing grass or gardening</li>
+                        </ul>
+                    </div>
+                    <div class="tip-category">
+                        <h4>⏰ Timing Strategies</h4>
+                        <ul>
+                            <li>Pollen highest: 5am-10am and dusk</li>
+                            <li>Best time outdoors: after rain</li>
+                            <li>Avoid windy days when possible</li>
+                            <li>Plan activities for mid-afternoon</li>
+                            <li>Start medications before season begins</li>
+                        </ul>
+                    </div>
+                    <div class="tip-category">
+                        <h4>🌿 Natural Remedies</h4>
+                        <ul>
+                            <li>Saline nasal rinses twice daily</li>
+                            <li>Local honey (1 tsp daily)</li>
+                            <li>Quercetin-rich foods (onions, apples)</li>
+                            <li>Stay well-hydrated</li>
+                            <li>Consider probiotics for immune support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medication-reminder">
+                <div class="medication-title">💊 Your Current Medication Plan</div>
+                <div class="medication-grid">
+                    <div class="medication-type">
+                        <h5>Daily Antihistamine</h5>
+                        <p><strong>Cetirizine 10mg</strong><br>
+                        Take once daily, preferably evening<br>
+                        Continue throughout allergy season</p>
+                    </div>
+                    <div class="medication-type">
+                        <h5>Nasal Spray (PRN)</h5>
+                        <p><strong>Beclometasone nasal spray</strong><br>
+                        Use when symptoms worsen<br>
+                        2 sprays each nostril, twice daily</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-size: 10pt; color: #666;">
+                    ⚠️ Start medications 1-2 weeks before peak season for best results
+                </p>
+            </div>
+
+            <div class="emergency-section">
+                <div class="emergency-title">🚨 When to Seek Medical Help</div>
+                <div class="warning-signs">
+                    <h5 style="color: #d32f2f; margin: 0 0 10px 0;">Seek immediate medical attention if you experience:</h5>
+                    <ul style="margin: 0; color: #555;">
+                        <li>Difficulty breathing or wheezing</li>
+                        <li>Severe facial swelling</li>
+                        <li>Rapid pulse or dizziness</li>
+                        <li>Widespread rash or hives</li>
+                        <li>Severe symptoms not responding to medication</li>
+                    </ul>
+                </div>
+                <p style="text-align: center; margin-top: 15px; font-weight: bold; color: #d32f2f;">
+                    Emergency: Call 999 | Non-urgent: NHS 111
+                </p>
+            </div>
+
+            <div class="flower-decoration">🌸 🌻 🌼 🌺 🌷</div>
+
+            <p><strong>Additional Resources:</strong></p>
+            <ul>
+                <li>🌐 <strong>Allergy UK:</strong> www.allergyuk.org - Comprehensive allergy information</li>
+                <li>📱 <strong>Pollen Count Apps:</strong> Met Office Weather, Allergy Plus</li>
+                <li>📚 <strong>Cardiff Pollen Info:</strong> www.cardiff.ac.uk/pollen-forecast</li>
+                <li>🏥 <strong>Allergy Clinic:</strong> Book annual reviews in February</li>
+            </ul>
+
+            <div class="contact-info">
+                <div class="contact-title">📞 Contact Us for Allergy Support</div>
+                <p>Our dedicated allergy team is here to help you through the season</p>
+                <div class="contact-grid">
+                    <div class="contact-method">
+                        <div class="contact-icon">📞</div>
+                        <div><strong>Phone</strong><br>029 2023 4567</div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">💻</div>
+                        <div><strong>Online Booking</strong><br>riverside-health.wales</div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div><strong>Email</strong><br>allergies@riverside-health.wales</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Remember, Mrs Evans, that managing seasonal allergies is about preparation and consistency. Start your prevention strategies early, take medications as prescribed, and don't hesitate to contact us if your symptoms worsen or if you have any questions.</p>
+
+            <div class="signature-section">
+                <p>Wishing you a comfortable allergy season,</p>
+                <br>
+                <p><strong>Dr. Amanda Phillips</strong><br>
+                General Practitioner & Allergy Specialist<br>
+                MBChB, MRCGP, Diploma in Allergy Medicine<br>
+                Riverside Family Health Centre</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Practice Hours:</strong> Mon-Fri 8:00-18:00 | Sat 9:00-12:00 | Allergy Clinic: Wed & Fri afternoons<br>
+            <strong>Out of Hours:</strong> NHS 111 | <strong>Emergency:</strong> 999</p>
+            
+            <p style="margin-top: 15px; font-size: 9pt;">
+                Riverside Family Health Centre is committed to helping you manage your allergies effectively.<br>
+                This advice is based on current medical guidelines and your personal health record.<br>
+                Practice Registration: W98765 | Next allergy review due: March 2026
+            </p>
+        </div>
+    </div>
+</body>
+</html>

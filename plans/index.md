@@ -20,7 +20,7 @@ It also emphasizes that automation will augment, not entirely replace, valuable 
 
 **Programming Practices:**
 
-- Survey which languags are in play that we can leverage for frontend testing capabilities 
+- Survey which languages are in play that we can leverage for frontend testing capabilities 
 
 - Evaluate skill levels for programming methodologies, and key areas of async, UX, DX, CI/CD/CT.
 

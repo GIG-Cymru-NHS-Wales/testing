@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GP Appointment Letter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .practice-name {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 5px;
+        }
+        .practice-details {
+            font-size: 10pt;
+            color: #666;
+        }
+        .patient-details {
+            margin: 20px 0;
+            float: right;
+            width: 300px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details td {
+            padding: 3px 8px;
+            border: 1px solid #ddd;
+        }
+        .patient-details .label {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            width: 120px;
+        }
+        .letter-content {
+            clear: both;
+            margin-top: 40px;
+        }
+        .date {
+            text-align: right;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .appointment-box {
+            border: 2px solid #0066cc;
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .appointment-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+        .appointment-details {
+            font-size: 12pt;
+        }
+        .important-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 10pt;
+            color: #666;
+        }
+        .signature-section {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="practice-name">Hillside Medical Centre</div>
+        <div class="practice-details">
+            123 High Street, Cardiff, CF1 2AB<br>
+            Tel: 029 2123 4567 | Fax: 029 2123 4568<br>
+            Email: reception@hillsidemedical.nhs.uk
+        </div>
+    </div>
+
+    <div class="patient-details">
+        <table>
+            <tr>
+                <td class="label">Patient Name:</td>
+                <td>Sarah J. Williams</td>
+            </tr>
+            <tr>
+                <td class="label">DOB:</td>
+                <td>15/03/1985</td>
+            </tr>
+            <tr>
+                <td class="label">NHS Number:</td>
+                <td>123 456 7890</td>
+            </tr>
+            <tr>
+                <td class="label">Address:</td>
+                <td>45 Oak Avenue<br>Cardiff<br>CF3 1XY</td>
+            </tr>
+            <tr>
+                <td class="label">Tel:</td>
+                <td>029 2098 7654</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="letter-content">
+        <div class="date">28th August 2025</div>
+        
+        <p>Dear Ms Williams,</p>
+
+        <div class="appointment-box">
+            <div class="appointment-title">APPOINTMENT CONFIRMATION</div>
+            <div class="appointment-details">
+                <strong>Date:</strong> Tuesday, 10th September 2025<br>
+                <strong>Time:</strong> 2:30 PM<br>
+                <strong>Duration:</strong> 15 minutes<br>
+                <strong>Doctor:</strong> Dr. Michael Thompson<br>
+                <strong>Room:</strong> Consultation Room 3<br>
+                <strong>Type:</strong> Routine Check-up
+            </div>
+        </div>
+
+        <p>Thank you for booking your appointment with us. Please arrive 10 minutes early to allow time for any necessary paperwork or updates to your records.</p>
+
+        <div class="important-note">
+            <strong>Important Reminders:</strong>
+            <ul style="margin: 5px 0; padding-left: 20px;">
+                <li>Please bring a list of all current medications</li>
+                <li>Bring your NHS card or photo ID</li>
+                <li>If you cannot attend, please give us at least 24 hours notice</li>
+                <li>Late arrivals may need to be rescheduled</li>
+            </ul>
+        </div>
+
+        <p><strong>What to expect during your visit:</strong></p>
+        <ul>
+            <li>General health assessment</li>
+            <li>Blood pressure check</li>
+            <li>Review of current medications</li>
+            <li>Discussion of any health concerns</li>
+            <li>Opportunity to ask questions</li>
+        </ul>
+
+        <p>If you have any urgent concerns before your appointment, please contact the practice immediately. For non-urgent queries, please call during normal practice hours (Monday-Friday 8:00 AM - 6:00 PM).</p>
+
+        <p>We look forward to seeing you at your appointment.</p>
+
+        <div class="signature-section">
+            <p>Yours sincerely,</p>
+            <br>
+            <p><strong>Dr. Michael Thompson</strong><br>
+            General Practitioner<br>
+            Hillside Medical Centre</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <hr>
+        <p><strong>Practice Hours:</strong> Monday-Friday 8:00 AM - 6:00 PM | Saturday 9:00 AM - 12:00 PM<br>
+        <strong>Out of Hours:</strong> Call NHS 111 for non-emergency medical advice<br>
+        <strong>Emergency:</strong> Call 999 for life-threatening emergencies</p>
+        
+        <p style="font-size: 9pt; margin-top: 10px;">
+            This practice is part of Cardiff and Vale University Health Board.<br>
+            Registered with the Care Quality Commission. Practice Code: W12345
+        </p>
+    </div>
+</body>
+</html>
